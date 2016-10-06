@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:src="@drawable/ic_login"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/padding_32"
+        android:layout_centerHorizontal="true"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/txt_in_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img"
+        app:hintEnabled="true"
+        android:layout_marginLeft="@dimen/padding_32"
+        android:layout_marginRight="@dimen/padding_32"
+        android:layout_marginBottom="@dimen/padding_16"
+        android:layout_marginTop="@dimen/padding_16"
+        android:layout_centerHorizontal="true"
+        app:theme="@style/TextStyle"
+        >
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edt_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lg_noid"
+            android:textSize="@dimen/font_16"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:inputType="text"
+            android:textColorHint="@color/colorWhite"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/txt_in_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_in_id"
+        app:hintEnabled="true"
+        android:layout_marginLeft="@dimen/padding_32"
+        android:layout_marginRight="@dimen/padding_32"
+        android:layout_marginBottom="@dimen/padding_16"
+        android:layout_marginTop="@dimen/padding_16"
+        android:layout_centerHorizontal="true"
+        app:theme="@style/TextStyle"
+        >
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edt_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lg_pass"
+            android:textSize="@dimen/font_16"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:inputType="text"
+            android:textColorHint="@color/colorWhite"
+            android:textColorHighlight="@color/colorWhite"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/img_pass"
+        android:layout_width="@dimen/ic_action_size"
+        android:layout_height="@dimen/ic_action_size"
+        android:src="@drawable/selector_pass"
+        android:layout_marginRight="@dimen/padding_32"
+        android:layout_below="@id/txt_in_id"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/padding_32"/>
+
+    <TextView
+        android:id="@+id/txt_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/txt_in_pass"
+        android:text="@string/lg_bantuan"
+        android:textSize="@dimen/font_12"
+        android:textColor="@color/colorWhite"
+        android:layout_marginRight="@dimen/padding_32"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rel_masuk"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        >
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/colorWhite"
+            android:layout_alignParentTop="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/lg_masuk"
+            android:textSize="@dimen/font_22"
+            android:textColor="@color/colorWhite"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

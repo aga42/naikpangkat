@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Naik Pangkat</string>
+    <string name="lg_noid">No ID Anggota</string>
+    <string name="lg_pass">Password</string>
+    <string name="lg_bantuan">Butuh bantuan?</string>
+    <string name="lg_masuk">Masuk</string>
 </resources>
