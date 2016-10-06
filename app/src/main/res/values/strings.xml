@@ -4,4 +4,8 @@
     <string name="lg_pass">Password</string>
     <string name="lg_bantuan">Butuh bantuan?</string>
     <string name="lg_masuk">Masuk</string>
+
+    <string name="tab_misi">Misi</string>
+    <string name="tab_misisaya">Misi Saya</string>
+    <string name="tab_profil">Profil</string>
 </resources>
