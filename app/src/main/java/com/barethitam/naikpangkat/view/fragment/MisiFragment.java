@@ -1,5 +1,6 @@
 package com.barethitam.naikpangkat.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.view.activity.MisiDetailActivity;
 import com.barethitam.naikpangkat.view.adapter.MisiAdapter;
 
 import butterknife.BindView;
@@ -54,6 +56,6 @@ public class MisiFragment extends Fragment implements MisiAdapter.ItemSelectedLi
 
     @Override
     public void onItemSelected() {
-
+        startActivity(new Intent(getActivity(), MisiDetailActivity.class));
     }
 }

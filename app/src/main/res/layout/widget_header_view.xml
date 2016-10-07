@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.barethitam.naikpangkat.view.widget.HeaderView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_misi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="top"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/header_view_start_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_exp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="3000 exp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/header_view_start_text_size"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</com.barethitam.naikpangkat.view.widget.HeaderView>

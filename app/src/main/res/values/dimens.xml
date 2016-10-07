@@ -20,4 +20,12 @@
 
     <dimen name="content_height">256dp</dimen>
     <dimen name="mask_height">56dp</dimen>
+
+    <dimen name="header_view_start_margin_left">16dp</dimen>
+    <dimen name="header_view_end_margin_left">40dp</dimen>
+    <dimen name="header_view_end_margin_right">14dp</dimen>
+    <dimen name="header_view_start_margin_bottom">14dp</dimen>
+    <dimen name="header_view_start_text_size">18sp</dimen>
+    <dimen name="header_view_end_text_size">18sp</dimen>
+    <dimen name="header_view_end_text_size_smaller">12sp</dimen>
 </resources>

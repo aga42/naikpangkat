@@ -23,4 +23,8 @@
         <item name="android:textColorHint">@color/colorWhite</item>
     </style>
 
+    <style name="ExpandableToolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>
