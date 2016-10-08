@@ -18,6 +18,8 @@ import com.barethitam.naikpangkat.utils.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by LTE on 10/6/2016.

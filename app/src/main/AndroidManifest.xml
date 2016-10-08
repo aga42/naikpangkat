@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.barethitam.naikpangkat">
+    package="com.barethitam.naikpangkat"
+    android:versionCode="1"
+    android:versionName="1.0.0">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -26,6 +29,9 @@
             </intent-filter>-->
         </activity>
         <activity android:name=".view.activity.MisiDetailActivity" android:screenOrientation="portrait"/>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="f1700d28c09c1e5443f9f30dd509165c3100f917" />
     </application>
 
 </manifest>
