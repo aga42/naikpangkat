@@ -64,7 +64,7 @@ public class MisiFragment extends Fragment implements MisiAdapter.ItemSelectedLi
 
     @Override
     public void onItemSelected(MisiModel.Data data) {
-        startActivity(new Intent(getActivity(), MisiDetailActivity.class).putExtra(Constant.MISI_ID, String.valueOf(data.getId_misi())));
+        startActivity(new Intent(getActivity(), MisiDetailActivity.class).putExtra(Constant.MISI_ID, String.valueOf(data.getId_misi())).putExtra(Constant.IS_FROM_MISI, true));
     }
 
     @Override

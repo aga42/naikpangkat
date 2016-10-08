@@ -71,7 +71,7 @@ public class MisiAdapter extends RecyclerView.Adapter<MisiAdapter.ViewHolder> {
             holder.txtDate.setTypeface(Utils.getMyTypeface(context));
 
             holder.txtMisi.setText(data.getPam());
-            holder.txtExp.setText(data.getSatuan());
+            holder.txtExp.setText(String.valueOf(data.getExp()+" Exp"));
             holder.txtDate.setText(data.getTahun());
 
         } catch (Exception e) {

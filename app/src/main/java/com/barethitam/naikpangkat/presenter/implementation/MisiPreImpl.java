@@ -130,7 +130,7 @@ public class MisiPreImpl {
     //END OF LOGIN PART=======================
 
     //LOGIN PART=======================
-    /*public static class MisiSayaPresenterImplementation implements MisiPresenter.MisiSayaPresenter {
+    public static class MisiSayaPresenterImplementation implements MisiPresenter.MisiSayaPresenter {
         private MisiInterface.MisiSayaView misiSayaView;
         private Subscription subscription;
         private final String TAG = MisiPreImpl.MisiListPresenterImplementation.class.getSimpleName();
@@ -150,9 +150,9 @@ public class MisiPreImpl {
         }
 
         @Override
-        public void misiList() {
+        public void misiSaya(String url, HashMap<String, Object> postLikeModel) {
             subscription = getMisiAPI()
-                    .postLogin()
+                    .postMisiSaya(url, postLikeModel)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new BaseResponse<MisiSayaModel>() {
@@ -175,11 +175,11 @@ public class MisiPreImpl {
                         }
                     });
         }
-    }*/
+    }
     //END OF LOGIN PART=======================
 
     //LOGIN PART=======================
-    /*public static class JalankanMisiPresenterImplementation implements MisiPresenter.JalankanMisiPresenter {
+    public static class JalankanMisiPresenterImplementation implements MisiPresenter.JalankanMisiPresenter {
         private MisiInterface.JalankanMisiView jalankanMisiView;
         private Subscription subscription;
         private final String TAG = MisiPreImpl.JalankanMisiPresenterImplementation.class.getSimpleName();
@@ -199,9 +199,9 @@ public class MisiPreImpl {
         }
 
         @Override
-        public void misiList() {
+        public void jalankanMisi(String url, HashMap<String, Object> postLikeModel) {
             subscription = getMisiAPI()
-                    .postLogin()
+                    .postJalankanMisi(url, postLikeModel)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new BaseResponse<JalankanMisiModel>() {
@@ -224,7 +224,7 @@ public class MisiPreImpl {
                         }
                     });
         }
-    }*/
+    }
     //END OF LOGIN PART=======================
 
     private static MisiAPI misiAPI;

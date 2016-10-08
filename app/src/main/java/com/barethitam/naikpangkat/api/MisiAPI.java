@@ -1,7 +1,9 @@
 package com.barethitam.naikpangkat.api;
 
+import com.barethitam.naikpangkat.model.JalankanMisiModel;
 import com.barethitam.naikpangkat.model.MisiDetailModel;
 import com.barethitam.naikpangkat.model.MisiModel;
+import com.barethitam.naikpangkat.model.MisiSayaModel;
 import com.barethitam.naikpangkat.utils.Constant;
 
 import java.util.HashMap;
@@ -24,5 +26,11 @@ public interface MisiAPI {
 
     @POST
     Observable<Response<MisiDetailModel>> postMisiDetail(@Url String url, @Body HashMap<String, Object> postMisiDetailModel);
+
+    @POST
+    Observable<Response<MisiSayaModel>> postMisiSaya(@Url String url, @Body HashMap<String, Object> postMisiSayaModel);
+
+    @POST
+    Observable<Response<JalankanMisiModel>> postJalankanMisi(@Url String url, @Body HashMap<String, Object> postJalankanMisiModel);
 
 }

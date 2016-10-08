@@ -4,7 +4,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <ImageView
             android:id="@+id/img_profile"
             android:layout_width="64dp"
@@ -58,7 +58,6 @@
             android:textSize="@dimen/font_22"
             android:layout_margin="@dimen/padding_16"
             android:layout_below="@id/txt_exp"
-            android:text="Mayor Jendral Puronomo"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"
             />
@@ -73,7 +72,6 @@
             android:layout_marginLeft="@dimen/padding_16"
             android:layout_marginRight="@dimen/padding_16"
             android:layout_below="@id/txt_name"
-            android:text="Batalyon Kavaleri"
             />
 
         <TextView
@@ -86,7 +84,6 @@
             android:layout_marginLeft="@dimen/padding_16"
             android:layout_marginRight="@dimen/padding_16"
             android:layout_below="@id/txt_name_pers"
-            android:text="Bondowoso, 11 April 1979"
             />
 
         <com.barethitam.naikpangkat.view.widget.JustifyTextView
@@ -95,11 +92,10 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/font_16"
-            android:layout_marginBottom="@dimen/padding_16"
             android:layout_below="@id/txt_ttl"
             android:layout_marginLeft="@dimen/padding_16"
-            android:text="lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet
-        lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet"
+            android:text="lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet"
+
             />
 
         <RelativeLayout
@@ -107,14 +103,14 @@
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@id/txt_info"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/padding_16">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/font_16"
-                android:layout_margin="@dimen/padding_16"
                 android:layout_centerInParent="true"
                 android:text="Keluar Akun"
                 />

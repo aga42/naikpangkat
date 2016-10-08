@@ -69,6 +69,14 @@ public class LoginActivity extends AppCompatActivity implements AccountInterface
         txtHelp.setTypeface(Utils.getMyTypeface(LoginActivity.this));
         edtId.setTypeface(Utils.getMyTypeface(LoginActivity.this));
         edtPass.setTypeface(Utils.getMyTypeface(LoginActivity.this));
+
+        if(null!=App.getFromPreference(Constant.NO_PERS)&&!App.getFromPreference(Constant.NO_PERS).equals(Constant.BLANK)){
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            ComponentName cn = i.getComponent();
+            Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
+            startActivity(mainIntent);
+            finish();
+        }
     }
 
     @OnClick({R.id.img_pass, R.id.rel_masuk, R.id.txt_help})
@@ -118,7 +126,8 @@ public class LoginActivity extends AppCompatActivity implements AccountInterface
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         ComponentName cn = i.getComponent();
         Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
-        App.saveToPreference(Constant.NO_ID_ANGGOTA, loginModel.getData().getNo_pers());
+        App.saveToPreference(Constant.NO_ID_ANGGOTA, String.valueOf(loginModel.getData().getId_personel()));
+        App.saveToPreference(Constant.NO_PERS, loginModel.getData().getNo_pers());
         startActivity(mainIntent);
         finish();
     }

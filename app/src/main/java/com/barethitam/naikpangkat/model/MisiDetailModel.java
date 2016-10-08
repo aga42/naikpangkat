@@ -33,14 +33,16 @@ public final class MisiDetailModel {
         public final Tmt tmt;
         public final String tahun;
         public final String deskripsi;
+        public final long exp;
 
-        public Data(long id_misi, String satuan, String pam, Tmt tmt, String tahun, String deskripsi){
+        public Data(long id_misi, String satuan, String pam, Tmt tmt, String tahun, String deskripsi, long exp){
             this.id_misi = id_misi;
             this.satuan = satuan;
             this.pam = pam;
             this.tmt = tmt;
             this.tahun = tahun;
             this.deskripsi = deskripsi;
+            this.exp = exp;
         }
 
         public long getId_misi() {
@@ -65,6 +67,10 @@ public final class MisiDetailModel {
 
         public String getDeskripsi() {
             return deskripsi;
+        }
+
+        public long getExp() {
+            return exp;
         }
 
         public static final class Tmt {

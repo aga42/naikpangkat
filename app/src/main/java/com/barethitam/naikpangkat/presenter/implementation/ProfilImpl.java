@@ -49,9 +49,9 @@ public class ProfilImpl {
         }
 
         @Override
-        public void profilPersonil() {
-            /*subscription = getProfilAPI()
-                    .postLogin()
+        public void profilPersonil(String url, HashMap<String, Object> postProfilModel) {
+            subscription = getProfilAPI()
+                    .postProfil(url, postProfilModel)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new BaseResponse<ProfilModel>() {
@@ -72,7 +72,7 @@ public class ProfilImpl {
                         public void onCompleted() {
 
                         }
-                    });*/
+                    });
         }
     }
     //END OF LOGIN PART=======================

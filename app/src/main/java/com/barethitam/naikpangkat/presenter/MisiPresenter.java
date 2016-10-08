@@ -18,11 +18,11 @@ public class MisiPresenter {
     }
 
     public interface MisiSayaPresenter extends BasePresenter<MisiInterface.MisiSayaView>{
-        void misiSaya(String type, String post_id, String user_id);
+        void misiSaya(String url, HashMap<String, Object> postLikeModel);
     }
 
     public interface JalankanMisiPresenter extends BasePresenter<MisiInterface.JalankanMisiView>{
-        void likeFeed(String post_id, HashMap<String, Object> postLikeModel);
+        void jalankanMisi(String url, HashMap<String, Object> postLikeModel);
     }
 
 }

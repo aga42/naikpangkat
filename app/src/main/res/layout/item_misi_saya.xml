@@ -19,7 +19,7 @@
             android:id="@+id/img_status"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:src="@drawable/slicing_mrh"
+            android:src="@drawable/selector_status"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:scaleType="fitXY"/>

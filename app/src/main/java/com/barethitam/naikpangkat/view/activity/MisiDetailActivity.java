@@ -12,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.barethitam.naikpangkat.App;
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.model.JalankanMisiModel;
 import com.barethitam.naikpangkat.model.MisiDetailModel;
 import com.barethitam.naikpangkat.presenter.implementation.MisiPreImpl;
 import com.barethitam.naikpangkat.utils.Constant;
@@ -30,7 +32,7 @@ import butterknife.OnClick;
 /**
  * Created by LTE on 10/6/2016.
  */
-public class MisiDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener, MisiInterface.MisiDetailView {
+public class MisiDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener, MisiInterface.MisiDetailView, MisiInterface.JalankanMisiView {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -51,13 +53,16 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
     JustifyTextView txtInfo;
     @BindView(R.id.txt_jalankan)
     TextView txtJalankan;
-    @BindView(R.id.btn_jalankanmisi)
-    RelativeLayout btnJalankanmisi;
     @BindView(R.id.txt_misi)
     TextView txtMisi;
+    @BindView(R.id.btn_jalankanmisi)
+    RelativeLayout btnJalankanmisi;
     private boolean isHideToolbarView = false;
 
     MisiPreImpl.MisiDetailPresenterImplementation misiDetailPresenterImplementation;
+    MisiPreImpl.JalankanMisiPresenterImplementation jalankanMisiPresenterImplementation;
+    String misiId = Constant.BLANK;
+    boolean isFromMisi = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,7 +83,12 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
         txtInfo.setTypeface(Utils.getMyTypeface(MisiDetailActivity.this));
 
         Intent a = getIntent();
-        String misiId = a.getStringExtra(Constant.MISI_ID);
+        misiId = a.getStringExtra(Constant.MISI_ID);
+        isFromMisi = a.getBooleanExtra(Constant.IS_FROM_MISI, false);
+
+        if (!isFromMisi) {
+            btnJalankanmisi.setVisibility(View.GONE);
+        }
 
         HashMap<String, Object> postMisiDetailModel = new HashMap<>();
         postMisiDetailModel.put("id_misi", misiId);
@@ -109,6 +119,16 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
                 finish();
                 break;
             case R.id.btn_jalankanmisi:
+
+                jalankanMisiPresenterImplementation = new MisiPreImpl.JalankanMisiPresenterImplementation();
+                jalankanMisiPresenterImplementation.onAttachView(this);
+
+                HashMap<String, Object> postProfilModel = new HashMap<>();
+                postProfilModel.put("id_personel", App.getFromPreference(Constant.NO_ID_ANGGOTA));
+                postProfilModel.put("id_misi", misiId);
+
+                jalankanMisiPresenterImplementation.jalankanMisi(Constant.URL_JALANKAN_MISI, postProfilModel);
+
                 break;
         }
     }
@@ -116,9 +136,9 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
     @Override
     public void getMisiDetail(MisiDetailModel misiDetailModel) {
         toolbarHeaderView.bindTo(misiDetailModel.getData().getPam()
-                , "3000 Exp" + ", " + misiDetailModel.getData().getTahun());
+                , String.valueOf(misiDetailModel.getData().getExp()) + " Exp, " + misiDetailModel.getData().getTahun());
         floatHeaderView.bindTo(misiDetailModel.getData().getPam()
-                , "3000 Exp" + ", " + misiDetailModel.getData().getTahun());
+                , String.valueOf(misiDetailModel.getData().getExp()) + " Exp, " + misiDetailModel.getData().getTahun());
 
         txtInfo.setText(misiDetailModel.getData().getDeskripsi());
     }
@@ -131,10 +151,21 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(null==misiDetailPresenterImplementation){
+        if (null == misiDetailPresenterImplementation) {
             //do nothing
-        }else{
+        } else {
             misiDetailPresenterImplementation.onDetachView();
         }
+
+        if (null == jalankanMisiPresenterImplementation) {
+            //do nothing
+        } else {
+            jalankanMisiPresenterImplementation.onDetachView();
+        }
+    }
+
+    @Override
+    public void postJalankanMisi(JalankanMisiModel jalankanMisiModel) {
+        finish();
     }
 }
