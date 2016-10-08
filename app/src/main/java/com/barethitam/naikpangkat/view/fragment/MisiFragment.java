@@ -58,13 +58,17 @@ public class MisiFragment extends Fragment implements MisiAdapter.ItemSelectedLi
 
         misiListPresenterImplementation = new MisiPreImpl.MisiListPresenterImplementation();
         misiListPresenterImplementation.onAttachView(this);
-        misiListPresenterImplementation.misiList();
+        //misiListPresenterImplementation.misiList();
 
     }
 
     @Override
     public void onItemSelected(MisiModel.Data data) {
-        startActivity(new Intent(getActivity(), MisiDetailActivity.class).putExtra(Constant.MISI_ID, String.valueOf(data.getId_misi())).putExtra(Constant.IS_FROM_MISI, true));
+
+        Intent i = new Intent(getActivity(), MisiDetailActivity.class);
+        i.putExtra(Constant.MISI_ID, String.valueOf(data.getId_misi()));
+        i.putExtra(Constant.IS_FROM_MISI, true);
+        getActivity().startActivityForResult(i, 0);
     }
 
     @Override
@@ -87,5 +91,9 @@ public class MisiFragment extends Fragment implements MisiAdapter.ItemSelectedLi
         }else{
             misiListPresenterImplementation.onDetachView();
         }
+    }
+
+    public void refreshData(){
+        initView();
     }
 }

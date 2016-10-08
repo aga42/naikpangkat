@@ -37,8 +37,10 @@ public final class ProfilModel {
         public final String kab_lahir;
         public final String kec_lahir;
         public final String kel_lahir;
+        public final long exp_personel;
+        public final long max_exp;
 
-        public Data(String nama_personel, String pangkat_personel, String jabatan_personel, String tgl_lahir, String provinsi_lahir, String kab_lahir, String kec_lahir, String kel_lahir){
+        public Data(String nama_personel, String pangkat_personel, String jabatan_personel, String tgl_lahir, String provinsi_lahir, String kab_lahir, String kec_lahir, String kel_lahir, long exp_personel, long max_exp){
             this.nama_personel = nama_personel;
             this.pangkat_personel = pangkat_personel;
             this.jabatan_personel = jabatan_personel;
@@ -47,6 +49,8 @@ public final class ProfilModel {
             this.kab_lahir = kab_lahir;
             this.kec_lahir = kec_lahir;
             this.kel_lahir = kel_lahir;
+            this.exp_personel = exp_personel;
+            this.max_exp = max_exp;
         }
 
         public String getNama_personel() {
@@ -79,6 +83,14 @@ public final class ProfilModel {
 
         public String getKel_lahir() {
             return kel_lahir;
+        }
+
+        public long getExp_personel() {
+            return exp_personel;
+        }
+
+        public long getMax_exp() {
+            return max_exp;
         }
     }
 }

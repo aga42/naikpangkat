@@ -67,7 +67,7 @@ public class Utils {
                     Intent i = new Intent(activity, LoginActivity.class);
                     ComponentName cn = i.getComponent();
                     Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
-                    App.getSharedPreferences().edit().clear();
+                    App.saveToPreference(Constant.NO_PERS, Constant.BLANK);
                     activity.startActivity(mainIntent);
                     activity.finish();
                 }else if(action==Constant.ACTION_EXIT){

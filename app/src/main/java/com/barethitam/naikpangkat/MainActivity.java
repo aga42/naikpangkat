@@ -1,5 +1,6 @@
 package com.barethitam.naikpangkat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -124,5 +125,14 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             Utils.initDialogInfo(MainActivity.this, "Apakah anda ingin keluar dari aplikasi?", Constant.ACTION_EXIT);
         }
         return false;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            MisiFragment.getInstance(new Bundle()).refreshData();
+            MisiSayaFragment.getInstance(new Bundle()).refreshData();
+        }
     }
 }

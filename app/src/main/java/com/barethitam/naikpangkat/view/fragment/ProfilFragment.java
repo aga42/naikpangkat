@@ -114,6 +114,7 @@ public class ProfilFragment extends Fragment implements ProfilInterface.ProfilPe
         ProfilModel.Data data = profilModel.getData().get(0);
         txtName.setText(data.getNama_personel());
         txtNamePers.setText(data.getPangkat_personel()+", "+data.getJabatan_personel());
+        txtExp.setText(String.valueOf(data.getExp_personel())+" / "+String.valueOf(data.getMax_exp()+" Exp"));
         try {
             //Date past = Constant.CREATED_AT.parse(data.getTgl_lahir());
             txtTtl.setText(data.getProvinsi_lahir()+", "+getSimpleDate(data.getTgl_lahir()));
@@ -121,6 +122,10 @@ public class ProfilFragment extends Fragment implements ProfilInterface.ProfilPe
 
         }
 
+        progBar.setMax((int)data.getMax_exp());
+        progBar.setProgress((int)data.getExp_personel());
+
+        cekPangkat(data.getPangkat_personel());
     }
 
     @Override
@@ -143,5 +148,53 @@ public class ProfilFragment extends Fragment implements ProfilInterface.ProfilPe
         final Date date = Constant.CREATED_AT.parse(createdAt);
         simpleDate = Constant.SHORT_DATE_FORMAT.format(date);
         return simpleDate;
+    }
+
+    private void cekPangkat(String pangkat){
+        if(pangkat.equals(Constant.PANGKAT_PRADA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_prajurit_2);
+        }else if(pangkat.equals(Constant.PANGKAT_PRATU)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_prajurit_1);
+        }else if(pangkat.equals(Constant.PANGKAT_PRAKA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_prajurit_kepala);
+        }else if(pangkat.equals(Constant.PANGKAT_KOPDA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_kopral_2);
+        }else if(pangkat.equals(Constant.PANGKAT_KOPTU)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_kopral_1);
+        }else if(pangkat.equals(Constant.PANGKAT_KOPKA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_kopral_kepala);
+        }else if(pangkat.equals(Constant.PANGKAT_SERDA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_sersan_2);
+        }else if(pangkat.equals(Constant.PANGKAT_SERTU)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_sersan_1);
+        }else if(pangkat.equals(Constant.PANGKAT_SERKA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_sersan_kepala);
+        }else if(pangkat.equals(Constant.PANGKAT_SERMA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_sersan_mayor);
+        }else if(pangkat.equals(Constant.PANGKAT_PELDA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_pembantu_letnan_2);
+        }else if(pangkat.equals(Constant.PANGKAT_PELTU)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_pembantu_letnan_1);
+        }else if(pangkat.equals(Constant.PANGKAT_LETDA)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_letnan_2);
+        }else if(pangkat.equals(Constant.PANGKAT_LETTU)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_letnan_1);
+        }else if(pangkat.equals(Constant.PANGKAT_KAPTEN)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_kapten);
+        }else if(pangkat.equals(Constant.PANGKAT_MAYOR)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_mayor);
+        }else if(pangkat.equals(Constant.PANGKAT_LETKOL)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_letnan_kolonel);
+        }else if(pangkat.equals(Constant.PANGKAT_KOLONEL)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_kolonel);
+        }else if(pangkat.equals(Constant.PANGKAT_BRIGJEN)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_brigjen);
+        }else if(pangkat.equals(Constant.PANGKAT_MAYJEN)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_mayor_jenderal);
+        }else if(pangkat.equals(Constant.PANGKAT_LETJEN)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_letnan_jenderal);
+        }else if(pangkat.equals(Constant.PANGKAT_JENDRAL)){
+            imgPangkat.setImageResource(R.drawable.ic_pangkat_jenderal);
+        }
     }
 }

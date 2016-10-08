@@ -81,4 +81,8 @@ public class MisiSayaFragment extends Fragment implements MisiSayaAdapter.ItemSe
     public void onFailed(String message) {
 
     }
+
+    public void refreshData(){
+        initView();
+    }
 }

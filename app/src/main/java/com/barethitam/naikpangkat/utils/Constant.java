@@ -35,4 +35,34 @@ public class Constant{
     public static final int MISI_SELESAI = 1;
     public static final int MISI_SEKARANG = 0;
     public final static String IS_FROM_MISI = "is_from_misi";
+
+    //pangkat var
+    public final static String PANGKAT_PRADA = "PRADA";
+    public final static String PANGKAT_PRATU = "PRATU";
+    public final static String PANGKAT_PRAKA = "PRAKA";
+
+    public final static String PANGKAT_KOPDA = "KOPDA";
+    public final static String PANGKAT_KOPTU = "KOPTU";
+    public final static String PANGKAT_KOPKA = "KOPKA";
+
+    public final static String PANGKAT_SERDA = "SERDA";
+    public final static String PANGKAT_SERTU = "SERTU";
+    public final static String PANGKAT_SERKA = "SERKA";
+    public final static String PANGKAT_SERMA = "SERMA";
+
+    public final static String PANGKAT_PELDA = "PELDA";
+    public final static String PANGKAT_PELTU = "PELTU";
+
+    public final static String PANGKAT_LETDA = "LETDA";
+    public final static String PANGKAT_LETTU = "LETTU";
+    public final static String PANGKAT_KAPTEN = "KAPTEN";
+
+    public final static String PANGKAT_MAYOR = "MAYOR";
+    public final static String PANGKAT_LETKOL = "LETKOL";
+    public final static String PANGKAT_KOLONEL = "KOLONEL";
+
+    public final static String PANGKAT_BRIGJEN = "BRIGJEN";
+    public final static String PANGKAT_MAYJEN = "MAYJEN";
+    public final static String PANGKAT_LETJEN = "LETJEN";
+    public final static String PANGKAT_JENDRAL = "JENDRAL";
 }
