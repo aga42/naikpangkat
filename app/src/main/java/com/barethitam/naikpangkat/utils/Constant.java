@@ -9,5 +9,7 @@ public class Constant{
 
     public static final String BASE_URL = BuildConfig.BASE_URL;
     public static String BLANK ="";
-
+    public final static String NO_ID_ANGGOTA = "no_id";
+    public final static int ACTION_EXIT = 0;
+    public final static int ACTION_LOGOUT = 1;
 }

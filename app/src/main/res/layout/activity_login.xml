@@ -36,7 +36,7 @@
             android:textSize="@dimen/font_16"
             android:singleLine="true"
             android:textColor="@color/colorWhite"
-            android:inputType="text"
+            android:inputType="number"
             android:textColorHint="@color/colorWhite"
             />
     </android.support.design.widget.TextInputLayout>
@@ -62,7 +62,7 @@
             android:textSize="@dimen/font_16"
             android:singleLine="true"
             android:textColor="@color/colorWhite"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:textColorHint="@color/colorWhite"
             android:textColorHighlight="@color/colorWhite"
             />
@@ -76,7 +76,8 @@
         android:layout_marginRight="@dimen/padding_32"
         android:layout_below="@id/txt_in_id"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/padding_32"/>
+        android:layout_marginTop="@dimen/padding_32"
+        />
 
     <TextView
         android:id="@+id/txt_help"

@@ -7,11 +7,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.barethitam.naikpangkat.utils.Constant;
 import com.barethitam.naikpangkat.utils.Utils;
 import com.barethitam.naikpangkat.view.fragment.MisiFragment;
 import com.barethitam.naikpangkat.view.fragment.MisiSayaFragment;
@@ -114,5 +116,13 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            Utils.initDialogInfo(MainActivity.this, "Apakah anda ingin keluar dari aplikasi?", Constant.ACTION_EXIT);
+        }
+        return false;
     }
 }

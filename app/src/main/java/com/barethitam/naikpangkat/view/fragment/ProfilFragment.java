@@ -14,12 +14,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.utils.Constant;
 import com.barethitam.naikpangkat.utils.Utils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by LTE on 10/6/2016.
@@ -81,5 +83,10 @@ public class ProfilFragment extends Fragment {
         txtExp.setTypeface(Utils.getMyTypeface(getActivity()));
         txtTtl.setTypeface(Utils.getMyTypeface(getActivity()));
         txtInfo.setTypeface(Utils.getMyTypeface(getActivity()));
+    }
+
+    @OnClick(R.id.rel_keluar)
+    public void onClick() {
+        Utils.initDialogInfo(getActivity(), "Apakah anda ingin keluar dari akun ini?", Constant.ACTION_LOGOUT);
     }
 }
