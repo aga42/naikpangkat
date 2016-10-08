@@ -72,12 +72,6 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
     private void initView() {
         appBar.addOnOffsetChangedListener(this);
 
-        toolbarHeaderView.bindTo("Misi Pertama"
-                , "3000 Exp" + ", " + "21 Mei 2016");
-        floatHeaderView.bindTo("Misi Pertama"
-                , "3000 Exp" + ", "
-                        + "21 Mei 2016");
-
         txtJalankan.setTypeface(Utils.getMyTypeface(MisiDetailActivity.this));
         txtExp.setTypeface(Utils.getMyTypeface(MisiDetailActivity.this));
         txtMisi.setTypeface(Utils.getMyTypeface(MisiDetailActivity.this));
@@ -121,11 +115,26 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
 
     @Override
     public void getMisiDetail(MisiDetailModel misiDetailModel) {
+        toolbarHeaderView.bindTo(misiDetailModel.getData().getPam()
+                , "3000 Exp" + ", " + misiDetailModel.getData().getTahun());
+        floatHeaderView.bindTo(misiDetailModel.getData().getPam()
+                , "3000 Exp" + ", " + misiDetailModel.getData().getTahun());
 
+        txtInfo.setText(misiDetailModel.getData().getDeskripsi());
     }
 
     @Override
     public void onFailed(String message) {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(null==misiDetailPresenterImplementation){
+            //do nothing
+        }else{
+            misiDetailPresenterImplementation.onDetachView();
+        }
     }
 }

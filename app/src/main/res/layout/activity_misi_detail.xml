@@ -84,7 +84,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/padding_16">
 
@@ -94,6 +94,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/font_16"
+                    android:layout_marginBottom="@dimen/padding_16"
                     android:layout_marginLeft="@dimen/padding_16"
                     android:text="lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet
         lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet"
