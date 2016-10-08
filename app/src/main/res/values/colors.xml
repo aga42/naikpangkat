@@ -12,5 +12,6 @@
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="text_shadow">#7F000000</color>
+    <color name="colorProgress">#3cc013</color>
 
 </resources>

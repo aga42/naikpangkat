@@ -48,21 +48,21 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         ImageView img_tab1 = (ImageView) view1.findViewById(R.id.img_tab);
         TextView text_title1 = (TextView) view1.findViewById(R.id.txt_title);
         text_title1.setText(getResources().getString(R.string.tab_misi));
-        //img_tab1.setImageResource(R.drawable.selector_discover);
+        img_tab1.setImageResource(R.drawable.ic_misi);
         tab.getTabAt(0).setCustomView(view1);
 
         View view2 = LayoutInflater.from(this).inflate(R.layout.tab_custom, null);
         ImageView img_tab2 = (ImageView) view2.findViewById(R.id.img_tab);
         TextView text_title2 = (TextView) view2.findViewById(R.id.txt_title);
         text_title2.setText(getResources().getString(R.string.tab_misisaya));
-        //img_tab1.setImageResource(R.drawable.selector_discover);
+        img_tab2.setImageResource(R.drawable.ic_misi_saya);
         tab.getTabAt(1).setCustomView(view2);
 
         View view3 = LayoutInflater.from(this).inflate(R.layout.tab_custom, null);
         ImageView img_tab3 = (ImageView) view3.findViewById(R.id.img_tab);
         TextView text_title3 = (TextView) view3.findViewById(R.id.txt_title);
         text_title3.setText(getResources().getString(R.string.tab_profil));
-        //img_tab1.setImageResource(R.drawable.selector_discover);
+        img_tab3.setImageResource(R.drawable.ic_profil);
         tab.getTabAt(2).setCustomView(view3);
 
         viewpager.setCurrentItem(0);
