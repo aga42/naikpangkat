@@ -6,9 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.utils.Utils;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -62,6 +66,10 @@ public class MisiSayaAdapter extends RecyclerView.Adapter<MisiSayaAdapter.ViewHo
 
             holder.txtDate.setText(Utils.getTimeFormat(data.getCreated_at()));*/
 
+            holder.txtMisi.setTypeface(Utils.getMyTypeface(context));
+            holder.txtExp.setTypeface(Utils.getMyTypeface(context));
+            holder.txtDate.setTypeface(Utils.getMyTypeface(context));
+
         } catch (Exception e) {
             String sd = e.toString();
             Log.d("", "");
@@ -79,6 +87,16 @@ public class MisiSayaAdapter extends RecyclerView.Adapter<MisiSayaAdapter.ViewHo
     static class ViewHolder extends RecyclerView.ViewHolder {
         ItemSelectedListener listener;
         //CommentModel.Data data;
+        @BindView(R.id.img)
+        ImageView img;
+        @BindView(R.id.img_status)
+        ImageView imgStatus;
+        @BindView(R.id.txt_misi)
+        TextView txtMisi;
+        @BindView(R.id.txt_exp)
+        TextView txtExp;
+        @BindView(R.id.txt_date)
+        TextView txtDate;
 
         public ViewHolder(View view, ItemSelectedListener listener) {
             super(view);

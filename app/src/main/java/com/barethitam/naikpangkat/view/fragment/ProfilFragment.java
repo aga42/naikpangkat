@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.utils.Utils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
@@ -74,5 +75,11 @@ public class ProfilFragment extends Fragment {
                 super.getView().setImageDrawable(circularBitmapDrawable);
             }
         });
+
+        txtName.setTypeface(Utils.getMyTypeface(getActivity()));
+        txtNamePers.setTypeface(Utils.getMyTypeface(getActivity()));
+        txtExp.setTypeface(Utils.getMyTypeface(getActivity()));
+        txtTtl.setTypeface(Utils.getMyTypeface(getActivity()));
+        txtInfo.setTypeface(Utils.getMyTypeface(getActivity()));
     }
 }

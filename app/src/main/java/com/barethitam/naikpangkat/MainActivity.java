@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.barethitam.naikpangkat.utils.Utils;
 import com.barethitam.naikpangkat.view.fragment.MisiFragment;
 import com.barethitam.naikpangkat.view.fragment.MisiSayaFragment;
 import com.barethitam.naikpangkat.view.fragment.ProfilFragment;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     TabLayout tab;
     @BindView(R.id.viewpager)
     ViewPager viewpager;
+    @BindView(R.id.txt_toolbar)
+    TextView txtToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         initView();
     }
 
-    private void initView(){
+    private void initView() {
+        txtToolbar.setTypeface(Utils.getMyTypeface(MainActivity.this));
         MainPageAdapter adapter = new MainPageAdapter(getSupportFragmentManager());
         viewpager.setAdapter(adapter);
         viewpager.setOffscreenPageLimit(adapter.getCount());
@@ -43,11 +47,12 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         viewpager.addOnPageChangeListener(this);
     }
 
-    private void setupTab(){
+    private void setupTab() {
         View view1 = LayoutInflater.from(this).inflate(R.layout.tab_custom, null);
         ImageView img_tab1 = (ImageView) view1.findViewById(R.id.img_tab);
         TextView text_title1 = (TextView) view1.findViewById(R.id.txt_title);
         text_title1.setText(getResources().getString(R.string.tab_misi));
+        text_title1.setTypeface(Utils.getMyTypeface(MainActivity.this));
         img_tab1.setImageResource(R.drawable.ic_misi);
         tab.getTabAt(0).setCustomView(view1);
 
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         ImageView img_tab2 = (ImageView) view2.findViewById(R.id.img_tab);
         TextView text_title2 = (TextView) view2.findViewById(R.id.txt_title);
         text_title2.setText(getResources().getString(R.string.tab_misisaya));
+        text_title2.setTypeface(Utils.getMyTypeface(MainActivity.this));
         img_tab2.setImageResource(R.drawable.ic_misi_saya);
         tab.getTabAt(1).setCustomView(view2);
 
@@ -62,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         ImageView img_tab3 = (ImageView) view3.findViewById(R.id.img_tab);
         TextView text_title3 = (TextView) view3.findViewById(R.id.txt_title);
         text_title3.setText(getResources().getString(R.string.tab_profil));
+        text_title3.setTypeface(Utils.getMyTypeface(MainActivity.this));
         img_tab3.setImageResource(R.drawable.ic_profil);
         tab.getTabAt(2).setCustomView(view3);
 

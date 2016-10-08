@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="1000 Exp"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/font_16"
+                android:textSize="@dimen/font_14"
                 android:layout_marginBottom="@dimen/padding_8"
                 android:layout_marginLeft="@dimen/padding_16"
                 android:layout_alignParentLeft="true"

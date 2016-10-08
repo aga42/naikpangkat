@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.utils.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,21 +28,27 @@ public class HeaderView extends LinearLayout {
     @BindView(R.id.txt_exp)
     TextView lblEventLocation;
 
+    Context context;
+
     public HeaderView(Context context) {
         super(context);
+        this.context = context;
     }
 
     public HeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
     }
 
     public HeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.context = context;
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public HeaderView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        this.context = context;
     }
 
     @Override
@@ -63,6 +70,9 @@ public class HeaderView extends LinearLayout {
         this.name.setText(eventName);
         this.lblEventLocation.setText(location);
         this.lblEventLocation.setSelected(true);
+
+        name.setTypeface(Utils.getMyTypeface(context));
+        lblEventLocation.setTypeface(Utils.getMyTypeface(context));
     }
 
     public void setTextSize(float size) {

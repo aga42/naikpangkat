@@ -85,7 +85,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/txt_in_pass"
         android:text="@string/lg_bantuan"
-        android:textSize="@dimen/font_12"
+        android:textSize="14sp"
         android:textColor="@color/colorWhite"
         android:layout_marginRight="@dimen/padding_32"
         />
@@ -106,6 +106,7 @@
             />
 
         <TextView
+            android:id="@+id/txt_masuk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
