@@ -31,7 +31,7 @@ public class MisiSayaAdapter extends RecyclerView.Adapter<MisiSayaAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_misi, parent, false), this.listener);
+                .inflate(R.layout.item_misi_saya, parent, false), this.listener);
     }
 
     @Override
