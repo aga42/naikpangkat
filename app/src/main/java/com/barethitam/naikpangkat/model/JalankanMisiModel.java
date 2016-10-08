@@ -3,12 +3,12 @@ package com.barethitam.naikpangkat.model;
 /**
  * Created by LTE on 10/8/2016.
  */
-public final class LoginModel {
+public final class JalankanMisiModel {
     public final long res;
     public final String msg;
     public final Data data;
 
-    public LoginModel(long res, String msg, Data data){
+    public JalankanMisiModel(long res, String msg, Data data){
         this.res = res;
         this.msg = msg;
         this.data = data;
@@ -27,20 +27,20 @@ public final class LoginModel {
     }
 
     public static final class Data {
-        public final long id_personel;
-        public final String no_pers;
+        public final long id_mission_history;
+        public final int status;
 
-        public Data(long id_personel, String no_pers){
-            this.id_personel = id_personel;
-            this.no_pers = no_pers;
+        public Data(long id_mission_history, int status){
+            this.id_mission_history = id_mission_history;
+            this.status = status;
         }
 
-        public long getId_personel() {
-            return id_personel;
+        public long getId_mission_history() {
+            return id_mission_history;
         }
 
-        public String getNo_pers() {
-            return no_pers;
+        public int getStatus() {
+            return status;
         }
     }
 }

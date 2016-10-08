@@ -1,5 +1,6 @@
 package com.barethitam.naikpangkat.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -12,9 +13,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.model.MisiDetailModel;
+import com.barethitam.naikpangkat.presenter.implementation.MisiPreImpl;
+import com.barethitam.naikpangkat.utils.Constant;
 import com.barethitam.naikpangkat.utils.Utils;
+import com.barethitam.naikpangkat.view.interfaces.MisiInterface;
 import com.barethitam.naikpangkat.view.widget.HeaderView;
 import com.barethitam.naikpangkat.view.widget.JustifyTextView;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +30,7 @@ import butterknife.OnClick;
 /**
  * Created by LTE on 10/6/2016.
  */
-public class MisiDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener {
+public class MisiDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener, MisiInterface.MisiDetailView {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -50,6 +57,8 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
     TextView txtMisi;
     private boolean isHideToolbarView = false;
 
+    MisiPreImpl.MisiDetailPresenterImplementation misiDetailPresenterImplementation;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +82,16 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
         txtExp.setTypeface(Utils.getMyTypeface(MisiDetailActivity.this));
         txtMisi.setTypeface(Utils.getMyTypeface(MisiDetailActivity.this));
         txtInfo.setTypeface(Utils.getMyTypeface(MisiDetailActivity.this));
+
+        Intent a = getIntent();
+        String misiId = a.getStringExtra(Constant.MISI_ID);
+
+        HashMap<String, Object> postMisiDetailModel = new HashMap<>();
+        postMisiDetailModel.put("id_misi", misiId);
+
+        misiDetailPresenterImplementation = new MisiPreImpl.MisiDetailPresenterImplementation();
+        misiDetailPresenterImplementation.onAttachView(this);
+        misiDetailPresenterImplementation.misiDetail(Constant.URL_MISI_DETAIL, postMisiDetailModel);
     }
 
     @Override
@@ -98,5 +117,15 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
             case R.id.btn_jalankanmisi:
                 break;
         }
+    }
+
+    @Override
+    public void getMisiDetail(MisiDetailModel misiDetailModel) {
+
+    }
+
+    @Override
+    public void onFailed(String message) {
+
     }
 }

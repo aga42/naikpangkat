@@ -33,9 +33,9 @@ public abstract class BaseNetworkManager implements Interceptor {
         return retrofit;
     }
 
-    public static Retrofit getRetrofitForToken() {
+    /*public static Retrofit getRetrofitForToken() {
         return initiateRetrofit(getHttpClient(getInterceptorForToken()));
-    }
+    }*/
 
 
     protected static Retrofit initiateRetrofit(OkHttpClient okHttpClient) {
@@ -78,14 +78,14 @@ public abstract class BaseNetworkManager implements Interceptor {
         };
     }
 
-    public static Interceptor getInterceptorForUpload() {
+    /*public static Interceptor getInterceptorForUpload() {
         return new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 return chain.proceed(getRequestForUpload(chain));
             }
         };
-    }
+    }*/
 
     public static Interceptor getInterceptorForToken() {
         return new Interceptor() {
@@ -108,12 +108,12 @@ public abstract class BaseNetworkManager implements Interceptor {
                 .build();
     }
 
-    private static Request getRequestForUpload(Chain chain) {
+    /*private static Request getRequestForUpload(Chain chain) {
         return getChainRequest(chain)
                 .addHeader("Accept", "multipart/form-data")
                 //.addHeader("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoiMS4wIiwiZGV2aWNlIjoiMiIsImtleSI6ImNsaWVudDAyLUlibm5qc2FkYm91Mjg5NDgxODhiQUd3amZrc2RoaWJ2am9vd2Vmb2J2aGNqN0ZEQmJoaGpkc2Y4OTI4Mzg0NzcxOGhoZkhJREhGS0hTRktTaGgiLCJwb3N0Ijp7InVzZXJuYW1lIjoiaWJ1a290YSIsInBhc3N3b3JkIjoiaWJ1aWJ1IiwiZW1haWwiOiJpYnVrb3RhQGZlbWFsZWRhaWx5LmNvbSJ9LCJpYXQiOjE0NzIxMTQ3OTQsImV4cCI6MTQ3MjEyMTk5NH0.iVQ99PAy0BrGNYgvg5_U8_Crd1xDRhkP1VLcQiBK3G4")
                 .build();
-    }
+    }*/
 
     private static Request.Builder getChainRequest(Chain chain) {
         //Utils.d("hloa", "heh " + App.getInstance().getFromPreference(Constant.ACCESS_TOKEN_PREF));

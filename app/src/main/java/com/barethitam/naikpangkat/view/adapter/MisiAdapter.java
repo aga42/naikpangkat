@@ -11,7 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.model.MisiModel;
 import com.barethitam.naikpangkat.utils.Utils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,13 +28,12 @@ import butterknife.OnClick;
  */
 public class MisiAdapter extends RecyclerView.Adapter<MisiAdapter.ViewHolder> {
 
-    //ArrayList<MisiModel.Data> arrData;
+    ArrayList<MisiModel.Data> arrData;
     Context context;
     ItemSelectedListener listener;
 
-    public MisiAdapter(Context context, ItemSelectedListener listener) {
-        //ArrayList<MisiModel.Data> arrData,
-        //this.arrData = arrData;
+    public MisiAdapter(Context context, ArrayList<MisiModel.Data> arrData, ItemSelectedListener listener) {
+        this.arrData = arrData;
         this.context = context;
         this.listener = listener;
     }
@@ -43,33 +48,31 @@ public class MisiAdapter extends RecyclerView.Adapter<MisiAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         try {
-            /*CommentModel.Data data = arrData.get(position);
-
-            int s = arrData.size();
+            MisiModel.Data data = arrData.get(position);
             holder.data = data;
 
-            String pp = data.getUser().getPicture();
+            /*String pp = data.getUser().getPicture();
             if (!pp.isEmpty()) {
-                Glide.with(context).load(pp).asBitmap().centerCrop().into(new BitmapImageViewTarget(holder.imgPhoto) {
-                    @Override
-                    protected void setResource(Bitmap resource) {
-                        final RoundedBitmapDrawable circularBitmapDrawable = RoundedBitmapDrawableFactory.create(context.getResources(), resource);
-                        circularBitmapDrawable.setCircular(true);
-                        super.getView().setImageDrawable(circularBitmapDrawable);
-                    }
-                });
+                Glide.with(context)
+                        .load(R.drawable.img_dummy)
+                        .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                        .into(holder.img);
             } else {
                 //set default
-            }
+            }*/
 
-            holder.txtUsername.setText(data.getUser().getUsername());
-            holder.txtComment.setText(data.getText());
-
-            holder.txtDate.setText(Utils.getTimeFormat(data.getCreated_at()));*/
+            Glide.with(context)
+                    .load(R.drawable.img_dummy)
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                    .into(holder.img);
 
             holder.txtMisi.setTypeface(Utils.getMyTypeface(context));
             holder.txtExp.setTypeface(Utils.getMyTypeface(context));
             holder.txtDate.setTypeface(Utils.getMyTypeface(context));
+
+            holder.txtMisi.setText(data.getPam());
+            holder.txtExp.setText(data.getSatuan());
+            holder.txtDate.setText(data.getTahun());
 
         } catch (Exception e) {
             String sd = e.toString();
@@ -81,12 +84,12 @@ public class MisiAdapter extends RecyclerView.Adapter<MisiAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 4;
+        return arrData.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         ItemSelectedListener listener;
-        //CommentModel.Data data;
+        MisiModel.Data data;
         @BindView(R.id.img)
         ImageView img;
         @BindView(R.id.txt_misi)
@@ -107,14 +110,14 @@ public class MisiAdapter extends RecyclerView.Adapter<MisiAdapter.ViewHolder> {
         @OnClick(R.id.cardView)
         public void onClick() {
             if (listener != null)
-                listener.onItemSelected();
+                listener.onItemSelected(this.data);
         }
 
 
     }
 
     public interface ItemSelectedListener {
-        void onItemSelected();
+        void onItemSelected(MisiModel.Data data);
     }
 
 }

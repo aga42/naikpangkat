@@ -24,7 +24,7 @@ android {
         applicationId "com.barethitam.naikpangkat"
         minSdkVersion 15
         targetSdkVersion 24
-        buildConfigField("String", "BASE_URL", "\"http://\"")
+        buildConfigField("String", "BASE_URL", "\"http://139.162.41.128:8089/\"")
     }
     buildTypes {
         release {

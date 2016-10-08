@@ -21,20 +21,20 @@ public class NetworkManager<T> extends BaseNetworkManager {
         apiClass = t;
     }
 
-    private <T> T createInstanceForUpload(Class<T> service) {
+    /*private <T> T createInstanceForUpload(Class<T> service) {
         return (T) getRetrofitForUpload().create(service);
     }
 
     private <T> T createInstantForToken(Class<T> service) {
         return (T) getRetrofitForTokens().create(service);
-    }
+    }*/
 
     private <T> T create(Class<T> service) {
         return (T) getRetrofit()
                 .create(service);
     }
 
-    private static Retrofit getRetrofitForUpload() {
+    /*private static Retrofit getRetrofitForUpload() {
         return initiateRetrofit(getHttpClient(getInterceptorForUpload()));
     }
 
@@ -48,5 +48,5 @@ public class NetworkManager<T> extends BaseNetworkManager {
 
     public T getInstanceForToken() {
         return createInstantForToken(apiClass);
-    }
+    }*/
 }

@@ -17,19 +17,26 @@ import android.widget.TextView;
 import com.barethitam.naikpangkat.App;
 import com.barethitam.naikpangkat.MainActivity;
 import com.barethitam.naikpangkat.R;
+import com.barethitam.naikpangkat.model.LoginModel;
+import com.barethitam.naikpangkat.presenter.implementation.AccountImpl;
 import com.barethitam.naikpangkat.utils.Constant;
 import com.barethitam.naikpangkat.utils.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import com.barethitam.naikpangkat.view.interfaces.AccountInterface;
 import com.crashlytics.android.Crashlytics;
+
+import java.util.HashMap;
+
 import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by LTE on 10/6/2016.
  */
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements AccountInterface.LoginView {
 
     @BindView(R.id.img)
     ImageView img;
@@ -45,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     RelativeLayout relMasuk;
     @BindView(R.id.txt_masuk)
     TextView txtMasuk;
+
+    AccountImpl.LoginPresenterImplementation loginPresenterImplementation;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,12 +86,23 @@ public class LoginActivity extends AppCompatActivity {
             case R.id.rel_masuk:
                 //startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
-                Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                ComponentName cn = i.getComponent();
-                Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
-                App.saveToPreference(Constant.NO_ID_ANGGOTA, "123");
-                startActivity(mainIntent);
-                finish();
+                String noID = edtId.getText().toString();
+                String pass = edtPass.getText().toString();
+
+                if(noID.length()>0&&pass.length()>0){
+                    HashMap<String, Object> postLoginModel = new HashMap<>();
+                    postLoginModel.put("no_pers", noID);
+                    postLoginModel.put("password", pass);
+
+                    loginPresenterImplementation = new AccountImpl.LoginPresenterImplementation();
+                    loginPresenterImplementation.onAttachView(this);
+                    loginPresenterImplementation.login(Constant.URL_LOGIN, postLoginModel);
+
+                }else{
+                    Utils.showToast(LoginActivity.this, "Masukkan No ID Anggota dan Password..");
+                }
+
+
                 break;
             case R.id.txt_help:
                 String number = "0213456838";
@@ -91,5 +111,30 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
         }
+    }
+
+    @Override
+    public void login(LoginModel loginModel) {
+        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+        ComponentName cn = i.getComponent();
+        Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
+        App.saveToPreference(Constant.NO_ID_ANGGOTA, loginModel.getData().getNo_pers());
+        startActivity(mainIntent);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(null==loginPresenterImplementation){
+            //do nothing
+        }else{
+            loginPresenterImplementation.onDetachView();
+        }
+    }
+
+    @Override
+    public void onFailed(String message) {
+        Utils.showToast(LoginActivity.this, message);
     }
 }
