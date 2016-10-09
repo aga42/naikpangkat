@@ -58,7 +58,7 @@ public class MisiFragment extends Fragment implements MisiAdapter.ItemSelectedLi
 
         misiListPresenterImplementation = new MisiPreImpl.MisiListPresenterImplementation();
         misiListPresenterImplementation.onAttachView(this);
-        //misiListPresenterImplementation.misiList();
+        misiListPresenterImplementation.misiList();
 
     }
 

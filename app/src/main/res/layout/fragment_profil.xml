@@ -85,7 +85,7 @@
             android:layout_below="@id/txt_name_pers"
             />
 
-        <com.barethitam.naikpangkat.view.widget.JustifyTextView
+        <TextView
             android:id="@+id/txt_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,28 +93,22 @@
             android:textSize="@dimen/font_16"
             android:layout_below="@id/txt_ttl"
             android:layout_marginLeft="@dimen/padding_16"
+            android:layout_marginRight="@dimen/padding_16"
             android:text="lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet"
-
+            android:gravity="left"
             />
 
-        <RelativeLayout
-            android:id="@+id/rel_keluar"
+        <TextView
+            android:id="@+id/txt_keluar"
             android:layout_width="wrap_content"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_16"
+            android:layout_margin="@dimen/padding_24"
             android:layout_below="@id/txt_info"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/padding_16">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/font_16"
-                android:layout_centerInParent="true"
-                android:text="Keluar Akun"
-                />
-
-        </RelativeLayout>
+            android:text="Keluar Akun"
+            />
     </RelativeLayout>
 
 </ScrollView>

@@ -104,7 +104,7 @@ public class ProfilFragment extends Fragment implements ProfilInterface.ProfilPe
         profilPresenterImplementation.profilPersonil(Constant.URL_PROFIL, postProfilModel);
     }
 
-    @OnClick(R.id.rel_keluar)
+    @OnClick(R.id.txt_keluar)
     public void onClick() {
         Utils.initDialogInfo(getActivity(), "Apakah anda ingin keluar dari akun ini?", Constant.ACTION_LOGOUT);
     }

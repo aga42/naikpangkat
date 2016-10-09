@@ -140,7 +140,7 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
         floatHeaderView.bindTo(misiDetailModel.getData().getPam()
                 , String.valueOf(misiDetailModel.getData().getExp()) + " Exp, " + misiDetailModel.getData().getTahun());
 
-        txtInfo.setText(misiDetailModel.getData().getDeskripsi());
+        //txtInfo.setText(misiDetailModel.getData().getDeskripsi());
     }
 
     @Override
@@ -166,6 +166,8 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
 
     @Override
     public void postJalankanMisi(JalankanMisiModel jalankanMisiModel) {
+        Utils.showToast(MisiDetailActivity.this, jalankanMisiModel.getMsg());
+
         finish();
     }
 }
