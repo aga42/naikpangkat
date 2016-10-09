@@ -22,6 +22,8 @@ import com.barethitam.naikpangkat.utils.Utils;
 import com.barethitam.naikpangkat.view.interfaces.MisiInterface;
 import com.barethitam.naikpangkat.view.widget.HeaderView;
 import com.barethitam.naikpangkat.view.widget.JustifyTextView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.HashMap;
 
@@ -49,14 +51,14 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
     ImageButton backButton;
     @BindView(R.id.txt_exp)
     TextView txtExp;
-    @BindView(R.id.txt_info)
-    JustifyTextView txtInfo;
     @BindView(R.id.txt_jalankan)
     TextView txtJalankan;
     @BindView(R.id.txt_misi)
     TextView txtMisi;
     @BindView(R.id.btn_jalankanmisi)
     RelativeLayout btnJalankanmisi;
+    @BindView(R.id.txt_info)
+    TextView txtInfo;
     private boolean isHideToolbarView = false;
 
     MisiPreImpl.MisiDetailPresenterImplementation misiDetailPresenterImplementation;
@@ -85,10 +87,16 @@ public class MisiDetailActivity extends AppCompatActivity implements AppBarLayou
         Intent a = getIntent();
         misiId = a.getStringExtra(Constant.MISI_ID);
         isFromMisi = a.getBooleanExtra(Constant.IS_FROM_MISI, false);
+        String url_image = a.getStringExtra(Constant.URL_IMAGE);
 
         if (!isFromMisi) {
             btnJalankanmisi.setVisibility(View.GONE);
         }
+
+        Glide.with(MisiDetailActivity.this)
+                .load(url_image)
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                .into(eventImage);
 
         HashMap<String, Object> postMisiDetailModel = new HashMap<>();
         postMisiDetailModel.put("id_misi", misiId);

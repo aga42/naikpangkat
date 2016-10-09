@@ -91,15 +91,14 @@
                 <TextView
                     android:id="@+id/txt_info"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/font_16"
                     android:layout_marginBottom="@dimen/padding_16"
                     android:layout_marginLeft="@dimen/padding_16"
+                    android:layout_marginRight="@dimen/padding_16"
                     android:layout_gravity="left"
-                    android:gravity="left"
-                    android:text="lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet
-        lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet"
+                    android:text="Bertugas menjaga kedaulatan wilayah perbatasan bukanlah perkara mudah, dibutuhkan mentalitas yang matang dan juga skill militer dan komunikasi yang mumpuni. Misi kali ini ditugaskan untuk para prajurit TNI wilayah timur untuk bertugas dala kurun waktu yang belum bisa ditentukan tergantung dari kondisi kondusif antar kedua negara."
                     />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
