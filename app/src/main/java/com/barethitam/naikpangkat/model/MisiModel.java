@@ -34,13 +34,15 @@ public final class MisiModel {
         public final String pam;
         public final String tahun;
         public final long exp;
+        public final String photo;
 
-        public Data(long id_misi, String satuan, String pam, String tahun, long exp){
+        public Data(long id_misi, String satuan, String pam, String tahun, long exp, String photo){
             this.id_misi = id_misi;
             this.satuan = satuan;
             this.pam = pam;
             this.tahun = tahun;
             this.exp = exp;
+            this.photo = photo;
         }
 
         public long getId_misi() {
@@ -61,6 +63,10 @@ public final class MisiModel {
 
         public long getExp() {
             return exp;
+        }
+
+        public String getPhoto() {
+            return photo;
         }
     }
 }

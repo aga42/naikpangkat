@@ -37,8 +37,9 @@ public final class MisiSayaModel {
         public final String deskripsi;
         public final String exp;
         public final int status;
+        public final String photo;
 
-        public Data(String id_misi, String satuan, String pam, String tmt, String tahun, String deskripsi, String exp, int status){
+        public Data(String id_misi, String satuan, String pam, String tmt, String tahun, String deskripsi, String exp, int status, String photo){
             this.id_misi = id_misi;
             this.satuan = satuan;
             this.pam = pam;
@@ -47,6 +48,7 @@ public final class MisiSayaModel {
             this.deskripsi = deskripsi;
             this.exp = exp;
             this.status = status;
+            this.photo = photo;
         }
 
         public String getId_misi() {
@@ -79,6 +81,10 @@ public final class MisiSayaModel {
 
         public int getStatus() {
             return status;
+        }
+
+        public String getPhoto() {
+            return photo;
         }
     }
 }

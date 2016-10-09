@@ -61,7 +61,7 @@ public class MisiSayaAdapter extends RecyclerView.Adapter<MisiSayaAdapter.ViewHo
             }*/
 
             Glide.with(context)
-                    .load(R.drawable.img_dummy)
+                    .load(data.getPhoto())
                     .diskCacheStrategy(DiskCacheStrategy.RESULT)
                     .into(holder.img);
 

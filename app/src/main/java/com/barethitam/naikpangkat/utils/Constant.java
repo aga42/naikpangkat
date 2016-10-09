@@ -15,6 +15,7 @@ public class Constant{
     public final static String NO_ID_ANGGOTA = "no_id";
     public final static String MISI_ID = "misi_id";
     public final static String NO_PERS = "no_pers";
+    public final static String URL_IMAGE = "url_image";
 
     public final static int ACTION_EXIT = 0;
     public final static int ACTION_LOGOUT = 1;

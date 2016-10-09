@@ -66,8 +66,11 @@ public class MisiSayaFragment extends Fragment implements MisiSayaAdapter.ItemSe
 
     @Override
     public void onItemSelected(MisiSayaModel.Data data) {
-        startActivity(new Intent(getActivity(), MisiDetailActivity.class)
-                .putExtra(Constant.MISI_ID, String.valueOf(data.getId_misi())).putExtra(Constant.IS_FROM_MISI, false));
+        Intent i = new Intent(getActivity(), MisiDetailActivity.class);
+        i.putExtra(Constant.MISI_ID, String.valueOf(data.getId_misi()));
+        i.putExtra(Constant.IS_FROM_MISI, false);
+        i.putExtra(Constant.URL_IMAGE, data.getPhoto());
+        getActivity().startActivityForResult(i, 0);
     }
 
     @Override

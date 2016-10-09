@@ -88,7 +88,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/padding_16">
 
-                <com.barethitam.naikpangkat.view.widget.JustifyTextView
+                <TextView
                     android:id="@+id/txt_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -96,6 +96,8 @@
                     android:textSize="@dimen/font_16"
                     android:layout_marginBottom="@dimen/padding_16"
                     android:layout_marginLeft="@dimen/padding_16"
+                    android:layout_gravity="left"
+                    android:gravity="left"
                     android:text="lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet
         lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet"
                     />

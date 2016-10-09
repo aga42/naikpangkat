@@ -62,7 +62,7 @@ public class MisiAdapter extends RecyclerView.Adapter<MisiAdapter.ViewHolder> {
             }*/
 
             Glide.with(context)
-                    .load(R.drawable.img_dummy)
+                    .load(data.getPhoto())
                     .diskCacheStrategy(DiskCacheStrategy.RESULT)
                     .into(holder.img);
 
